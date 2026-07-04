@@ -1,6 +1,6 @@
-# Prueba resultos de la pruba Tecnica Frontend
+# Prueba resultos de la pruba Tecnica Frontend de Oscar Javier Moreno Orozco
 
-## PROBLEMAS RESUELTOS
+## PROBLEMAS RESUELTOS:
 
 1. No cargaba Bootstrap ni el archivo JS, tocó cambiar enlaces de conexión por un CDN (Red de Distribución de Contenido). Lo primero que toqué fue un bloqueo en el entorno. Antes de implementar la lógica de filtros revisé la consola del navegador porque el JavaScript no estaba reaccionando. Detecté errores 404 al cargar Bootstrap y jQuery. Revisé las rutas locales definidas en _Layout.cshtml y comprobé que las carpetas dist no existían dentro de wwwroot/lib; únicamente estaban los archivos LICENSE. Entonces el jQuery nunca se iba a cargar y el archivo resource-center.js fallaba desde la primera línea con "jQuery is not defined". Por eso para poder continuar con la prueba cambie las referencias locales por los CDN, y el problema se arregló. `Los enlaces fueron sacados de las paginas oficiales`.
 
