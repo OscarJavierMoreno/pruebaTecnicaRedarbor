@@ -1,56 +1,180 @@
-# Resource Center Interview Environment
+# Prueba Técnica Frontend - Resource Center
 
-Entorno reducido y ejecutable para la prueba tecnica frontend sobre stack ASP.NET Core MVC + Razor + jQuery + SCSS.
+## Descripción
 
-## Requisitos
+Desarrollo de la prueba técnica Frontend sobre ASP.NET Core MVC, Razor, JavaScript (jQuery) y SCSS.
 
+Durante el desarrollo no se modificó la arquitectura del proyecto; únicamente se realizaron cambios sobre los archivos destinados para la prueba y se corrigieron errores encontrados en el entorno.
+
+---
+
+## Tecnologías utilizadas
+
+- ASP.NET Core MVC
+- Razor
+- JavaScript (jQuery)
+- SCSS
+- Bootstrap 5
 - .NET SDK 8
-- Node.js 16+ y npm
+- Node.js
+- npm
 
-## Arranque rapido
+---
 
-1. Restaurar paquetes .NET:
+## Preparación del entorno
+
+### 1. Restaurar paquetes .NET
 
 ```bash
-dotnet restore --configfile NuGet.config
+dotnet restore
 ```
 
-2. Instalar herramientas frontend (solo primera vez):
+### 2. Instalar dependencias Frontend
 
 ```bash
 npm install
 ```
 
-3. Compilar SCSS a CSS:
+### 3. Compilar los archivos SCSS
 
 ```bash
 npm run scss:build
 ```
 
-4. Ejecutar la aplicacion:
+### 4. Ejecutar la aplicación
 
 ```bash
 dotnet run
 ```
 
-5. Abrir en navegador la URL mostrada por consola (ruta por defecto: `/TechnicalTest/ResourceCenter`).
+La aplicación queda disponible en:
 
-## Modo entrevista
-
-- Archivos que debe tocar la persona candidata:
-  - `Views/TechnicalTest/ResourceCenter.cshtml`
-  - `wwwroot/technical-test/resource-center.js`
-  - `wwwroot/technical-test/resource-center.scss`
-- Datos mock:
-  - `Data/resources.mock.json`
-
-## Atajos utiles
-
-- Recompilar SCSS en caliente:
-
-```bash
-npm run scss:watch
+```
+http://localhost:5087/TechnicalTest/ResourceCenter
 ```
 
-- Si hay que resetear el ejercicio rapidamente:
-  - Restablece solo los 3 archivos de trabajo y vuelve a ejecutar `npm run scss:build`.
+---
+
+## Archivos analizados
+
+Durante el desarrollo se revisaron los siguientes archivos:
+
+```
+Views/TechnicalTest/ResourceCenter.cshtml
+Views/Shared/_Layout.cshtml
+wwwroot/technical-test/resource-center.js
+wwwroot/technical-test/resource-center.scss
+Data/resources.mock.json
+```
+
+---
+
+## Flujo de análisis
+
+El archivo:
+
+```
+Views/TechnicalTest/ResourceCenter.cshtml
+```
+
+no requirió modificaciones importantes.
+
+Su función principal fue servir como punto de entrada de la pantalla, enlazando los archivos responsables del comportamiento y del diseño mediante las siguientes secciones:
+
+```cshtml
+@section Stylesheets
+```
+
+y
+
+```cshtml
+@section Scripts
+```
+
+Gracias a ello fue posible identificar que la lógica principal se encontraba en:
+
+```
+wwwroot/technical-test/resource-center.js
+```
+
+y que los estilos estaban definidos en:
+
+```
+wwwroot/technical-test/resource-center.scss
+```
+
+---
+
+## Problemas encontrados
+
+Durante las primeras pruebas la aplicación presentaba errores de carga:
+
+- Bootstrap no cargaba.
+- jQuery no cargaba.
+- El archivo JavaScript principal no podía ejecutarse.
+- Error:
+
+```
+jQuery is not defined
+```
+
+Después de revisar la estructura del proyecto se detectó que las rutas locales apuntaban a archivos inexistentes dentro de:
+
+```
+wwwroot/lib
+```
+
+Como solución temporal para el entorno de la prueba se reemplazaron las referencias locales por CDN oficiales de Bootstrap y jQuery.
+
+Esto permitió ejecutar correctamente toda la lógica JavaScript.
+
+---
+
+## Funcionalidades implementadas
+
+### Filtros
+
+✔ Búsqueda por título
+
+✔ Búsqueda por resumen
+
+✔ Filtro por categoría
+
+✔ Botón Limpiar
+
+---
+
+### Renderizado
+
+✔ Título
+
+✔ Categoría
+
+✔ Resumen
+
+✔ Manejo de resumen nulo
+
+✔ Manejo de categoría inesperada
+
+✔ Manejo de títulos largos
+
+---
+
+### Modal
+
+✔ Apertura desde "Ver detalle"
+
+✔ Cierre mediante botón
+
+✔ Cierre mediante tecla ESC
+
+---
+
+### Responsive
+
+✔ Adaptación de filtros para dispositivos móviles
+
+✔ Grid adaptable
+
+✔ Estado vacío correctamente visible
+
