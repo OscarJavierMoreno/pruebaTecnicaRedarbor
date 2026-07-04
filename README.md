@@ -1,4 +1,4 @@
-# Prueba resultos de la pruba Tecnica Frontend de Oscar Javier Moreno Orozco
+# Resultos de la prueba Tecnica Frontend Redarbor - Oscar Javier Moreno Orozco
 
 ## PROBLEMAS RESUELTOS:
 
@@ -30,7 +30,7 @@
 
 - Modificar el selector dinámicamente, que JavaScript lea todas las categorías del JSON, por si mas adelante se agregan mas categorías No toque agregarlas manualmente, o crear una nueva categoría que diga "Otras"
 
-## Decisiones tecnicas tomadas
+## Decisiones tecnicas tomadas:
 
 - Analisis del flujo entre Razor, JavaScript y los datos enviados desde el controlador.
 - Comprension del manejo de eventos con jQuery y del estado de la aplicacion.

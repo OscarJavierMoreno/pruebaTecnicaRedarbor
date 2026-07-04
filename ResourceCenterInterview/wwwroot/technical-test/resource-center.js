@@ -48,9 +48,27 @@
             .replace(/'/g, "&#039;");
     }
 
+
+    //Agregando el BONUS para que persista los filtros
+    function saveFilters()
+    {
+        sessionStorage.setItem("searchText", state.searchText);
+        sessionStorage.setItem("category", state.category);
+    }
+
+    function loadFilters()
+    {
+        state.searchText = sessionStorage.getItem("searchText") || "";
+        state.category = sessionStorage.getItem("category") || "all";
+
+        $(selectors.search).val(state.searchText);
+        $(selectors.category).val(state.category);
+    }
+
+
     function filteredResources() 
     {
-        var text = normalize(state.searchText); //Ejemplo: MVC
+        var text = normalize(state.searchText); //Ejemplo: js
         var category = normalize(state.category); //Ejemplo: Videos
 
         // TODO CANDIDATO 1:
@@ -146,6 +164,7 @@
         $(selectors.search).on("input", function () 
         {
             state.searchText = $(this).val();
+            saveFilters(); //Agregrando la funcion para que guarde los filtros
             render();
         });
 
@@ -153,6 +172,9 @@
         $(selectors.category).on("change", function () 
         {
             state.category = $(this).val();
+
+            saveFilters(); //Agregrando la funcion para que guarde los filtros
+
             render();
         });
 
@@ -166,6 +188,8 @@
             //Actualizando los valores internos
             state.searchText = "";
             state.category = "all";
+
+            saveFilters(); //Agregrando la funcion para que borre los filtros
 
             //Actualizando el input
             $(selectors.search).val("");
@@ -197,8 +221,8 @@
 
     function init() 
     {
-        //Mirando que el JS se está cargando correctamente
-        console.log("Iniciando el JS");
+        console.log("Iniciando el JS"); //Mirando si el JS se está cargando correctamente
+        loadFilters(); //Agregando la funcion para que cargue los filtros ya guardados
         wireEvents();
         render();
     }
