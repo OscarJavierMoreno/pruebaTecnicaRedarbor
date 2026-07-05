@@ -1,4 +1,4 @@
-# Resultos de la prueba Tecnica Frontend Redarbor - Oscar Javier Moreno Orozco
+# Conclución prueba Tecnica Frontend Redarbor - Oscar Javier Moreno Orozco
 
 ## PROBLEMAS RESUELTOS:
 
