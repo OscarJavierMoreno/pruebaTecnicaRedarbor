@@ -28,7 +28,13 @@
 
 ## ASPECTOS QUE YO MEJORARIA:
 
-- Modificar el selector dinámicamente, que JavaScript lea todas las categorías del JSON, por si mas adelante se agregan mas categorías No toque agregarlas manualmente, o crear una nueva categoría que diga "Otras"
+- Modificar el selector dinámicamente, que JavaScript lea todas las categorías del JSON, por si mas adelante se agregan mas categorías No toque agregarlas manualmente, o crear una nueva categoría que diga "Otras".
+- Pruebas unitarias;
+- Cerrar modal haciendo clic fuera;
+- Animaciones suaves;
+- Persistencia mediante query string;
+- Búsqueda con debounce;
+- Mejorar accesibilidad.
 
 ## Decisiones tecnicas tomadas:
 
